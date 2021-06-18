@@ -1,16 +1,40 @@
 import React from 'react'
 
-function App() {
-  React.useEffect(() => {
-    const getData = async () => {
-      const res = await fetch('/api/endpoint') // * <-- replace with your endpoint
-      const data = await res.json()
-      console.log(data)
-    }
-    getData()
-  })
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import SecureRoute from './components/auth/SecureRoute'
+import Error from './components/auth/Error'
 
-  return <h1>Hello World</h1>
+import HomeLoginRegister from './components/common/HomeLoginRegister'
+import Home from './components/user/Home'
+import Navbar from './components/common/Navbar'
+import Profile from './components/user/Profile'
+import NewTrip from './components/trips/NewTrip'
+
+
+
+function App() {
+
+
+
+  return (
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={HomeLoginRegister} />x
+        </Switch>
+      
+        <Navbar />
+        <Switch>
+          < SecureRoute path="/newtrip" component={NewTrip} />
+          < SecureRoute path="/home" component={Home}/> 
+          < SecureRoute path="/profile/" component={Profile}/> 
+          < SecureRoute component={Error} />
+    
+        </Switch>
+      </BrowserRouter>
+    </div> 
+  )
 }
 
 export default App
+

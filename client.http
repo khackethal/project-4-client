@@ -1,0 +1,16 @@
+
+
+
+### REGISTER A USER
+
+POST http://localhost:8000/api/auth/register/
+Content-Type: application/json
+
+{ "username": "kat22",
+  "email": "kat@email.com2",
+  "profileImage": "image.jpg",
+  "userCountry": "UK",
+  "password": "pass",
+  "passwordConfirmation": "pass"
+
+}
