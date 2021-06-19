@@ -12,6 +12,7 @@ import NewTrip from './components/trips/NewTrip'
 
 
 
+
 function App() {
 
 

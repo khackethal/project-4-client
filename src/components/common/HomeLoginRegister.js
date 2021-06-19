@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { loginUser, registerUser } from '../../lib/api'
 import { setToken, setUserId } from '../../lib/auth'
 import ImageUploadField from '../trips/ImageUploadField'
+import AboutPopup from './AboutPopup'
 
 function Home(){
   const history = useHistory()
@@ -10,13 +11,14 @@ function Home(){
   //* Handle PopUps
   const [aboutPopUp, setAboutPopUp] = React.useState(false)
   const [registerPopUp, setRegisterPopUp] = React.useState(false)
+  const [ isRegistered, setIsRegistered ] = React.useState(false)
  
 
-  const handleAboutPopUp = (e) => {
+  const handleAboutPopUp = () => {
     setAboutPopUp(!aboutPopUp)
   }
 
-  const handleRegisterPopUp = (e) => {
+  const handleRegisterPopUp = () => {
     setRegisterPopUp(!registerPopUp)
   }
 
@@ -76,8 +78,8 @@ function Home(){
     try {
       const req = await registerUser(registerFormData)
       setToken(req.data.token)
-      console.log('success!')
-      history.push('/')
+      setIsRegistered(true)
+      setRegisterPopUp(false)
     } catch (err) {
       setIsRegisterError(err.response.data)
     }
@@ -87,7 +89,6 @@ function Home(){
 
 
 
-  console.log(logInFormData)
 
   
 
@@ -99,36 +100,46 @@ function Home(){
             <h1 className="home-h1">tripbook</h1>
             <h2 className="home-h2">Helps you connect and share with the people in your life - through trips.</h2>
             
-            {!aboutPopUp && <button className="home-about-button" onClick={handleAboutPopUp}>About</button>}
-            { aboutPopUp && <p>Like Facebook but for Trips</p>}
-            {aboutPopUp && <button onClick={handleAboutPopUp}>x</button>}
+            <div className="popup-div">
+              {!aboutPopUp && <button className="login-button" onClick={handleAboutPopUp}>About</button>}
+              { aboutPopUp && < AboutPopup />}
+              {aboutPopUp && <button onClick={handleAboutPopUp}>x</button>}
+            </div>
           </div>
 
 
           <div className="home-div">
 
+            {!registerPopUp && isRegistered && <p>Registration succesful! Please log in.</p>}
+
             {!registerPopUp && <form>
               <input
+                className="register-input"
+                id="top-space"
                 placeholder="Email address"
                 name="email"
                 onChange={handleLogInChange}>          
               </input>
               <br></br>
               <input
+                className="register-input"
                 placeholder="Password"
                 name="password"
                 onChange={handleLogInChange}>          
               </input>
               <br></br>
-              <button onClick={handleLogInSubmit}> Log In</button>
+              <button className="login-button" onClick={handleLogInSubmit}> Log In</button>
               {isLogInError && <p>No match for provided details, please double check email and password</p>}
               <br></br>
-              <button onClick={handleRegisterPopUp}> Create New Account</button>
+              <button className="create-new-account-button" onClick={handleRegisterPopUp}> Create New Account</button>
               
             </form>}
 
+
             {registerPopUp && <form>
               <input
+                id="top-space"
+                className="register-input"
                 placeholder="Username"
                 name="username"
                 onChange={handleRegisterChange}>          
@@ -137,6 +148,7 @@ function Home(){
                 {isRegisterError.username && <small>Username is required</small>}
               </p>
               <input
+                className="register-input"
                 placeholder="Email address"
                 name="email"
                 onChange={handleRegisterChange}>          
@@ -150,27 +162,20 @@ function Home(){
               </div>
 
 
-              {/* {
-                registerFormData.profileImage ? null : (
-                  <input
-                    placeholder="profile image"
-                    name="profileImage"
-                    onChange={handleRegisterChange}>          
-                  </input>
-                )
-              } */}
               <p>
                 {isRegisterError.profileImage && <small>Profile Image is required</small>}
               </p>
               <input
+                className="register-input"
                 placeholder="Your City"
                 name="userCity"
                 onChange={handleRegisterChange}>          
               </input>
               <p>
-                {isRegisterError.userCity && <small>User Citry is required</small>}
+                {isRegisterError.userCity && <small color="darkred">User Citry is required</small>}
               </p>
               <input
+                className="register-input"
                 placeholder="Your Country"
                 name="userCountry"
                 onChange={handleRegisterChange}>          
@@ -179,6 +184,7 @@ function Home(){
                 {isRegisterError.userCountry && <small>User Country is required</small>}
               </p>
               <input
+                className="register-input"
                 placeholder="Password"
                 name="password"
                 onChange={handleRegisterChange}>          
@@ -187,6 +193,7 @@ function Home(){
                 {isRegisterError.password && <small>Password is required</small>}
               </p>
               <input
+                className="register-input"
                 placeholder="Password confirmation"
                 name="passwordConfirmation"
                 onChange={handleRegisterChange}>          
@@ -194,7 +201,8 @@ function Home(){
               <p>
                 {isRegisterError.passwordConfirmation && <small>Passwords do not match</small>}
               </p>
-              <button onClick={handleRegisterSubmit}> Register</button>
+              <button className="create-new-account-button"  onClick={handleRegisterSubmit}> Sign Up</button>
+              <div className="back-from-register"><button className="login-button" onClick={handleRegisterPopUp}>x</button></div>
             </form>}
 
 

@@ -22,25 +22,47 @@ function SidebarRight () {
             </div> 
           </NavLink>
 
-
-
           <NavLink className="side-link" to="/profile">
             <div className="first-container">
-              <p className="username">{user.user.username}'s Trips</p>
+              <p className="side-text">{user.user.username}'s Trips</p>
             </div> 
           </NavLink>
 
           <NavLink className="side-link" to="/profile">
             <div className="first-container">
-              <p className="username">{user.user.username}'s Lists</p>
+              <p className="side-text">{user.user.username}'s Lists</p>
             </div> 
           </NavLink>
 
           <NavLink className="side-link" to="/newtrip">
             <div className="first-container">
-              <p className="username">Create Trip</p>
+              <p className="side-text">Create Trip</p>
             </div> 
           </NavLink>
+
+          <div className="first-container">
+            <p className="username"></p>
+          </div> 
+
+          <div className="first-container">
+            <p className="username"></p>
+          </div> 
+
+          <div className="first-container">
+            <p className="username"></p>
+          </div> 
+
+          <div className="first-container">
+            <p className="username"></p>
+          </div> 
+
+          <div className="first-container">
+            <p className="username"></p>
+          </div> 
+
+          <div className="first-container">
+            <p className="username"></p>
+          </div> 
 
           <div className="first-container">
             <p className="username"></p>

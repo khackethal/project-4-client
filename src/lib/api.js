@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getToken, getUserId } from '../lib/auth'
+import { getToken } from '../lib/auth'
 
 export const baseUrl = '/api'
 

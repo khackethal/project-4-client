@@ -14,7 +14,6 @@ function useSetUser() {
       try {
         const result = await userProfileView(userId)
         setUser(result.data)
-        console.log(result.data)
       } catch (e) {
         console.log(e)
       }
@@ -25,6 +24,7 @@ function useSetUser() {
 
   return {
     user,
+    setUser,
   }
 
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import useSetUser from '../hooks/SetUser'
-import { NavLink } from 'react-router-dom'
 import SidebarRight from './SidebarRight'
 import StatusBox from './StatusBox'
+import AllTrips from '../trips/AllTrips'
 
 
 
@@ -23,18 +23,22 @@ function Home() {
           <SidebarRight />
 
           <div id="growth" className="middle-container">
+
             <div className="status-div"> 
               <StatusBox />
-            
             </div>
 
-            <div className="middle-div"> Placeholder for trips feed.</div>
 
+            <AllTrips />
+ 
 
           </div>
 
-          <div id="growth" className="right-container"> 
-          Content</div>
+
+          <div id="growth"  className="right-container">
+            <div className="message-div">Messages</div>
+            <div className="message-div">Contacts</div>
+          </div>
 
         </div>
       </div>

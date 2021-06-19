@@ -5,6 +5,7 @@ import MapboxSearch from '../mapbox/MapboxSearch'
 import ImageUploadField from './ImageUploadField'
 import { useForm } from '../hooks/useForm'
 import { createTrip, allTripsPath } from '../../lib/api'
+import SidebarRight from '../user/SidebarRight'
 
 function NewTrip() {
 
@@ -60,58 +61,72 @@ function NewTrip() {
 
   return (
     <>
-      <h1>New Trip- submit your own or get inspired</h1>
+      <div className="homepage-container">
 
-      <form onSubmit={handleSubmit}> 
+        <SidebarRight />
 
-        <div>
-          Name
+        <div id="growth" className="middle-container">
+          <h1>Create Your Trip</h1>
+
+          <div className="trip-feed-div">
+            <form onSubmit={handleSubmit}> 
+              <div>
+                Name
+              </div>
+              <input
+                placeholder="add a title"
+                name="name"
+                onChange={handleChange} ></input>
+              {formError.name && <p>{formError.name}</p>}
+
+              <div>
+                Description
+              </div>
+              <input
+                placeholder="description"
+                name="description"
+                onChange={handleChange} ></input>
+              {formError.description && <p>{formError.description}</p>}
+
+              <div>
+                <ImageUploadField onUpload={handleUpload} />
+              </div>
+
+              <div>Location</div>
+            
+
+              <input
+                className={`input ${formError.location || formError.errMessage ? 'is-danger' : ''}`}
+                type="text"
+                placeholder="Find address on map"
+                name="location"
+                onChange={(e) => {
+                  handleNestedChange(e)
+                  setFormError({ ...formError, location: '' })
+                }}
+                value={formData.location_string.userInput || ''}
+                required
+                disabled
+              />
+              {formError.location_string && <p>{formError.location_string}</p>}
+
+            </form>
+
+            <div>
+              {formError.errMessage && <p >{formError.errMessage}</p>}
+              <MapboxSearch onResult={handleNestedChange} />
+            </div>
+            <button onClick={handleSubmit}>Submit</button>
+          </div>
+          
         </div>
-        <input
-          placeholder="add a title"
-          name="name"
-          onChange={handleChange} ></input>
-        {formError.name && <p>{formError.name}</p>}
 
-        <div>
-          Description
+
+        <div id="growth"  className="right-container">
+          <div className="message-div">Messages</div>
+          <div className="message-div">Contacts</div>
         </div>
-        <input
-          placeholder="description"
-          name="description"
-          onChange={handleChange} ></input>
-        {formError.description && <p>{formError.description}</p>}
-
-        <div>
-          <ImageUploadField onUpload={handleUpload} />
-        </div>
-
-        <div>Location</div>
-      
-
-        <input
-          className={`input ${formError.location || formError.errMessage ? 'is-danger' : ''}`}
-          type="text"
-          placeholder="Find address on map"
-          name="location"
-          onChange={(e) => {
-            handleNestedChange(e)
-            setFormError({ ...formError, location: '' })
-          }}
-          value={formData.location_string.userInput || ''}
-          required
-          disabled
-        />
-        {formError.location_string && <p>{formError.location_string}</p>}
-
-      </form>
-
-      <div>
-        {formError.errMessage && <p >{formError.errMessage}</p>}
-        <MapboxSearch onResult={handleNestedChange} />
       </div>
-      <button onClick={handleSubmit}>Submit</button>
-
     </>
   )
 }

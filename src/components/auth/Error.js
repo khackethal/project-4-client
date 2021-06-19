@@ -1,9 +1,9 @@
-import { useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 function Error() {
   const history = useHistory()
 
-  const handleRedirect = (e) => {
+  const handleRedirect = () => {
     history.push('/home/')
   }
 

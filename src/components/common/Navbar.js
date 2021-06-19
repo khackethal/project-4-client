@@ -27,20 +27,16 @@ function Navbar() {
     history.push('/')
   }
 
-  
-
   return (
 
     <nav className="navbar">
       {isLoggedIn &&  
         <>
-  
-          {/* <Link activeClassName="active" className="home-image" to="/home"> <img height="60px" src="https://i.imgur.com/YCQIVrR.png"/></Link> */}
+
           <NavLink activeClassName="active" className="navbar-link" to="/home"> Home</NavLink>
           <NavLink activeClassName="active"className="navbar-link" to="/profile"> Profile</NavLink>
-          <NavLink activeClassName="active"className="navbar-link" to="/alltrips"> All Trips</NavLink>
           <NavLink activeClassName="active"className="navbar-link" to="/newtrip"> New Trip</NavLink>
-          <NavLink activeClassName="active"className="navbar-link" id="navbar-space" to="/explore"> Search Trips</NavLink>
+          <NavLink activeClassName="active"className="navbar-link" id="navbar-space" to="/explore"> Trip Inspiration</NavLink>
           { user.user?.id && <img className="profile-image" height="50px" src={user.user.profileImage} alt="profile image" /> } 
           { user.user?.id && <p className="navbar-username">Welcome, {user.user?.username}</p>} 
           <button className="navbar-button" onClick={handleLogout}>Log out</button>

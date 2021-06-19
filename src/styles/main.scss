@@ -1,9 +1,8 @@
 // External Home Page with login and sign up styling
-
 .home-body{
   display: flex-column;
   background-color: #f0f2f5; 
-  color: #999;
+  font-family: Helvetica;
 }
 
 .home-main{
@@ -11,7 +10,6 @@
   display: row;
   align-items: center;
   height: 100vh;
-
 }
 
 .home-section{
@@ -27,7 +25,6 @@
   color: #1877F2;
   font-family: Helvetica;
   font-size: 90px;
-
 }
 
 .home-h2{
@@ -37,20 +34,69 @@
   font-weight: 500;
   font-size: 35px;
 }
+.popup-div{
+  margin-left: 22px;
+}
 
 .home-about-button{
   margin: 28px;
 }
+
 .home-div{
+  display: flex;
+  justify-content: space-evenly;
   background-color: white;
   border: 0.5px solid#e6e6e6 ;
-  padding-top: 25px;
-  padding-bottom: 20px;
   margin: 10px;
+  margin-right: 100px;
   width: 300px;
   text-align: center;
   justify-items: center;
+  border-radius: 2%;
+  margin-top: 40px;
+  padding: 20px;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
 
+}
+.back-from-register{
+  text-align: right;
+}
+
+.register-input{
+  background-color: #f0f2f5; 
+  margin-bottom: 10px;
+  border: none;
+  box-shadow: 0.5px 1px 5px 1px #90949C;
+  padding: 5px;
+}
+
+#top-space{
+  margin-top: 15px;
+}
+
+.login-button{
+  background-color: #4267B2;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12%;
+  border: 2px solid #305192;
+  margin: 5px;
+}
+
+.create-new-account-button{
+  background-color: #69A74E;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 10%;
+  border: 2px solid #335823;
+  margin: 5px;
+}
+
+.image-upload-button{
+  color: #8a8e95;
+  background-color: #d9dce2;
+  border: 2px solid #90949C;
+  border-radius: 10%;
 }
 
 // Navbar
@@ -63,7 +109,7 @@
 }
 
 .navbar-link.active{
-  border-bottom: 3px solid #1877f2 ;
+  border-bottom: 4px solid #1877f2 ;
   text-decoration: none;
 }
 
@@ -123,10 +169,8 @@
   flex-direction: row;
   background-color: #f0f2f5;
   padding: 0px;
-  // width: 100%;
-  // height: 100vh;
+  height: 100vh;
   font-family: Helvetica;
-  // background-color: blue;
 }
 
 .side-container{
@@ -135,7 +179,6 @@
   padding: 0px;
   margin: 0px;
   background-color: #f0f2f5;
-  // background-color: white;
   width: 25%;
   height: 100vh;
 
@@ -158,7 +201,6 @@
 
 .first-container:hover {
   background-color: #c7cad1e1;
-  border-radius: 12%;
 }
 
 .side-image{
@@ -171,6 +213,12 @@
   width: 80%;
   display: inline;
   font-size: 40px;
+}
+
+.side-text{
+  width: 80%;
+  display: inline;
+  font-size: 30px;
 }
 
 //Homepage- middle container
@@ -186,10 +234,10 @@
   align-content: left;
   width: 70%;
   background-color: white;
-  border-radius: 10%;
-  margin-top: 20px;
+  border-radius: 2%;
+  margin-top: 40px;
   padding: 15px;
-  border: 1px solid grey;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
 
 }
 
@@ -197,12 +245,32 @@
   border-radius: 50%;
   margin-top: 20px;
   margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
   vertical-align: middle;
 }
+
+.status-paragraph{
+  display: inline;
+  font-size: 25px;
+}
+
+.input-div{
+  display: flex;
+  justify-content: center;
+}
+
 .status-input{
-  border-radius: 30%;
+  border-radius: 25%;
   width: 400px;
-  height: 20px;
+  height: 25px;
+  display: block;
+  color: #65676B;
+  background-color: #F0F2F5;
+  border: #F0F2F5;
+  font-size: 17px;
+  padding: 8px 12px;
+  margin-bottom:10px;;
 }
 
 .status-button-div{
@@ -210,20 +278,88 @@
 
 }
 
+.search-input{
+  border-radius: 5%;
+  width: 400px;
+  height: 25px;
+  color: #65676B;
+  background-color: #F0F2F5;
+  border: #F0F2F5;
+  font-size: 17px;
+  padding: 8px 12px;
+  margin-bottom:10px;
+  margin-right: 20px;
+}
+
 .status-button{
   display: inline;
   margin-right: 40px;
+  color: #2f333d;
+  background-color: #1877F2;
+  border: #E4E6EB;
+  height: 30px;
+  border-radius: 10%;
+  text-decoration: bold;
 }
 
-.middle-div{
-  display: flex;
-  justify-content: center;
+
+.search-button{
+  margin-right: 40px;
+  border: #E4E6EB;
+  height: 30px;
+  border-radius: 10%;
+  text-decoration: bold;
+  color: #1D2129;
+  background-color: #d9dce2;
+  font-weight: bold;
 }
+
+.trip-feed-div {
+  text-align: center;
+  align-content: center;
+  width: 70%;
+  background-color: white;
+  border-radius: 2%;
+  margin-top: 40px;
+  padding: 15px;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
+
+}
+
+#posted-by{
+  text-align: right;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+#posted-by-image{
+  border-radius: 50%;
+}
+
+/// Home - right side container
 .right-container{
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-end;
+  text-align: center;
   width: 15%;
-  background-color: grey;
+  background-color: #f0f2f5;
 
 }
+
+.message-div{
+  text-align: center;
+  text-decoration: bold;
+  align-content: center;
+  width: 80%;
+  background-color: white;
+  border-radius: 2%;
+  margin-top: 40px;
+  padding: 15px;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
+}
+
+
 
 
 
