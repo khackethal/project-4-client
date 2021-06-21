@@ -1,36 +1,37 @@
 import React from 'react'
 import useSetUser from '../hooks/SetUser'
 import { NavLink } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 
 
 
 function SidebarRight () {
 
-  const user = useSetUser()
+  const { user } = useSetUser()
 
   return (
     <>
 
-      { user.user?.username ? 
+      { user?.username ? 
           
     
         <div id="growth" className="side-container">
           <NavLink className="side-link" to="/profile">
             <div className="first-container">
-              <img className="side-image" height="100px" src={user.user.profileImage} alt="profile image" />
-              <p className="username">{user.user.username}</p>
+              <img className="side-image" height="100px" src={user.profileImage} alt="profile image" />
+              <p className="username">{user.username}</p>
             </div> 
           </NavLink>
 
-          <NavLink className="side-link" to="/profile">
+          <NavLink className="side-link" to="/usertrips">
             <div className="first-container">
-              <p className="side-text">{user.user.username}'s Trips</p>
+              <p className="side-text">My Trips</p>
             </div> 
           </NavLink>
 
-          <NavLink className="side-link" to="/profile">
+          <NavLink className="side-link" to="/usertriplists">
             <div className="first-container">
-              <p className="side-text">{user.user.username}'s Lists</p>
+              <p className="side-text">My Lists</p>
             </div> 
           </NavLink>
 
@@ -40,59 +41,58 @@ function SidebarRight () {
             </div> 
           </NavLink>
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
+            <p className="username"></p>
+          </div> 
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
-          <div className="first-container">
-            <p className="username"></p>
-          </div> 
-
-          <div className="first-container">
+          <div className="empty-container">
             <p className="username"></p>
           </div> 
 
@@ -101,7 +101,13 @@ function SidebarRight () {
         </div>
 
         
-        : <p>...loading</p>
+        :       <Loader
+          type="ThreeDots"
+          color="#1877F2"
+          height={100}
+          width={100}
+          timeout={3000} 
+        />
       }
     </>
   )

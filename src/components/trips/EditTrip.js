@@ -7,7 +7,7 @@ import { useForm } from '../hooks/useForm'
 import { createTrip } from '../../lib/api'
 import SidebarRight from '../user/SidebarRight'
 
-function NewTrip() {
+function EditTrip() {
 
 
   const history = useHistory()
@@ -50,6 +50,8 @@ function NewTrip() {
 
 
 
+
+
   return (
     <>
       <div className="homepage-container">
@@ -57,7 +59,7 @@ function NewTrip() {
         <SidebarRight />
 
         <div id="growth" className="middle-container">
-          <h1 className="uppercase">Create Your Trip</h1>
+          <h1>Create Your Trip</h1>
 
           <div className="trip-feed-div">
             <form onSubmit={handleSubmit}> 
@@ -124,4 +126,4 @@ function NewTrip() {
 }
 
 
-export default NewTrip
+export default EditTrip

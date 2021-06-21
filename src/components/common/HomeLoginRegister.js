@@ -97,18 +97,20 @@ function Home(){
       <div className="home-body"> 
         <div className="home-main">
           <div className="home-section">
-            <h1 className="home-h1">tripbook</h1>
-            <h2 className="home-h2">Helps you connect and share with the people in your life - through trips.</h2>
+            {!aboutPopUp ? <h1 className="home-h1">tripbook</h1> : <h1></h1>}
+            <div className="popup-div">
+              {aboutPopUp && <button className="login-button" onClick={handleAboutPopUp}>Close PopUp</button>}
+            </div>
+            {!aboutPopUp && <h2 className="home-h2">Helps you connect and share with the people in your life - through trips.</h2>}
             
             <div className="popup-div">
-              {!aboutPopUp && <button className="login-button" onClick={handleAboutPopUp}>About</button>}
-              { aboutPopUp && < AboutPopup />}
-              {aboutPopUp && <button onClick={handleAboutPopUp}>x</button>}
+              {!aboutPopUp && <button className="about-button" onClick={handleAboutPopUp}>About</button>}
+              { aboutPopUp &&  < AboutPopup /> }
             </div>
           </div>
 
 
-          <div className="home-div">
+          {!aboutPopUp && <div className="home-div">
 
             {!registerPopUp && isRegistered && <p>Registration succesful! Please log in.</p>}
 
@@ -131,7 +133,7 @@ function Home(){
               <button className="login-button" onClick={handleLogInSubmit}> Log In</button>
               {isLogInError && <p>No match for provided details, please double check email and password</p>}
               <br></br>
-              <button className="create-new-account-button" onClick={handleRegisterPopUp}> Create New Account</button>
+              <button className="btn-grad" onClick={handleRegisterPopUp}> Create New Account</button>
               
             </form>}
 
@@ -201,19 +203,19 @@ function Home(){
               <p>
                 {isRegisterError.passwordConfirmation && <small>Passwords do not match</small>}
               </p>
-              <button className="create-new-account-button"  onClick={handleRegisterSubmit}> Sign Up</button>
-              <div className="back-from-register"><button className="login-button" onClick={handleRegisterPopUp}>x</button></div>
+              <button className="btn-grad"  onClick={handleRegisterSubmit}> Sign Up</button>
+              <div ><button className="about-button" onClick={handleRegisterPopUp}>x</button></div>
             </form>}
 
 
 
-          </div>
+          </div>}
 
         </div>
-        <footer>
-          <p>
+        <footer className="register-footer">
+          {!aboutPopUp && <p>
             ©️ 2021 TripBook
-          </p>
+          </p>}
         </footer>
       </div>
     </>

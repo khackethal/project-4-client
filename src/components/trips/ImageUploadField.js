@@ -1,7 +1,7 @@
 import React from 'react'
 
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
-console.log(uploadPreset)
+// console.log(uploadPreset)
 
 function ImageUpload({ onUpload }) {
   const [image, setImage] = React.useState('')

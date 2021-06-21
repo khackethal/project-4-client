@@ -9,7 +9,7 @@
   display: flex;
   display: row;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 .home-section{
@@ -25,6 +25,7 @@
   color: #1877F2;
   font-family: Helvetica;
   font-size: 90px;
+  padding-left: 5px;
 }
 
 .home-h2{
@@ -36,6 +37,23 @@
 }
 .popup-div{
   margin-left: 22px;
+
+}
+
+.carousel-carousel-slider{
+  width: 90% !important;
+}
+// .slider-wrapper-axis-horizontal{
+//   height: 600px !important
+// }
+
+.carousel-root{
+  height: 200px !important;
+  margin-bottom: 1000px !important;
+}
+
+#pop-up{
+  height: 500px !important;               
 }
 
 .home-about-button{
@@ -68,6 +86,7 @@
   border: none;
   box-shadow: 0.5px 1px 5px 1px #90949C;
   padding: 5px;
+  width: 100%;
 }
 
 #top-space{
@@ -76,27 +95,71 @@
 
 .login-button{
   background-color: #4267B2;
+  width: 100%;
   color: white;
   padding: 4px 8px;
-  border-radius: 12%;
+  border-radius: 8px;
   border: 2px solid #305192;
   margin: 5px;
 }
 
-.create-new-account-button{
-  background-color: #69A74E;
+.login-button:hover{
+  cursor: pointer;
+}
+
+.about-button{
+  background-color: #4267B2;
   color: white;
   padding: 4px 8px;
-  border-radius: 10%;
-  border: 2px solid #335823;
+  border-radius: 8px;
+  border: 2px solid #305192;
   margin: 5px;
+}
+about-button:hover{
+  cursor: pointer;
 }
 
 .image-upload-button{
-  color: #8a8e95;
-  background-color: #d9dce2;
-  border: 2px solid #90949C;
-  border-radius: 10%;
+  background-color: #f0f2f5; 
+  color: grey;
+  border: 2px solid grey;
+  border-radius: 8px;
+  margin-bottom: 2px;
+}
+
+.image-upload-button:hover{
+  cursor: pointer;
+}
+
+
+
+.btn-grad {background-image: linear-gradient(to right, #5e9a45 0%, #a8e063  51%, #56ab2f  100%)}
+.btn-grad {
+  margin: 5px;
+  padding: 4px 8px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border: 2px solid #69A74E;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.btn-grad:hover {
+  background-position: right center; 
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.register-footer{
+  background-color: #4267B2;
+  color: white;
+  height: 8vh;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 // Navbar
@@ -130,7 +193,7 @@
 }
 
 #navbar-space{
-  margin-right: 250px;
+  margin-right: 400px;
 }
 
 .profile-image {
@@ -161,6 +224,7 @@
 .navbar-button:hover {
   color:#1877F2;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 // Homepage - side container
@@ -203,6 +267,12 @@
   background-color: #c7cad1e1;
 }
 
+.empty-container{
+  display: flex;
+  justify-content: center;
+
+}
+
 .side-image{
   border-radius: 50%;
   margin-top: 20px;
@@ -218,7 +288,9 @@
 .side-text{
   width: 80%;
   display: inline;
-  font-size: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 //Homepage- middle container
@@ -234,7 +306,7 @@
   align-content: left;
   width: 70%;
   background-color: white;
-  border-radius: 2%;
+  border-radius: 8px;
   margin-top: 40px;
   padding: 15px;
   box-shadow: 0.5px 1px 5px 1px lightgrey;
@@ -261,7 +333,7 @@
 }
 
 .status-input{
-  border-radius: 25%;
+  border-radius: 25px;
   width: 400px;
   height: 25px;
   display: block;
@@ -279,7 +351,7 @@
 }
 
 .search-input{
-  border-radius: 5%;
+  border-radius: 25px;
   width: 400px;
   height: 25px;
   color: #65676B;
@@ -298,8 +370,13 @@
   background-color: #1877F2;
   border: #E4E6EB;
   height: 30px;
-  border-radius: 10%;
-  text-decoration: bold;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.status-button:hover{
+  cursor: pointer;
 }
 
 
@@ -307,11 +384,15 @@
   margin-right: 40px;
   border: #E4E6EB;
   height: 30px;
-  border-radius: 10%;
+  border-radius: 8px;
   text-decoration: bold;
   color: #1D2129;
   background-color: #d9dce2;
   font-weight: bold;
+}
+
+.search-button:hover{
+  cursor: pointer;
 }
 
 .trip-feed-div {
@@ -319,22 +400,78 @@
   align-content: center;
   width: 70%;
   background-color: white;
-  border-radius: 2%;
+  border-radius: 8px;
   margin-top: 40px;
   padding: 15px;
   box-shadow: 0.5px 1px 5px 1px lightgrey;
+}
+
+.mapbox-div {
+  display:flex;
+  justify-content:center;
+  text-align: center;
+  margin-left:20px;
+  width: 90%;
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 40px;
+  padding: 15px;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
+}
+
+
+.trip-image{
+  margin-top: 20px;
+  border: 0.8px solid  lightgrey
+}
+
+.trip-name{
+  font-weight: bold;
+  padding: 15px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+#description-div {
+  padding: 15px;
+  margin-left:20px;
+  width: 90%;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
+  background-color: rgb(241, 241, 241);
+}
+
+.card-bottom-div{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#liked-by{
+  text-align: left;
+  margin-top: 25px;
+}
+
+#number-of-likes{
+  display: inline;
+  margin-left: 10px;
 
 }
 
-#posted-by{
-  text-align: right;
-  padding-right: 20px;
-  padding-bottom: 20px;
+#like-button{
+  display: inline;
+
 }
 
 #posted-by-image{
   border-radius: 50%;
 }
+
+.home-link{
+  text-decoration: none;
+}
+
 
 /// Home - right side container
 .right-container{
@@ -358,6 +495,107 @@
   padding: 15px;
   box-shadow: 0.5px 1px 5px 1px lightgrey;
 }
+
+// Sinlge Tip/ edit and delete
+
+.edit-delete-button{
+  border: 1px solid grey;
+  color: grey;
+  margin: 6px;
+  border-radius: 6px;
+}
+
+
+// Single trip- comments
+.comment-div {
+  text-align: center;
+  justify-content: center;
+  width: 70%;
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 40px;
+  padding: 15px;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
+}
+
+.comment-input{
+  height: 80px !important;
+  width: 500px;
+  display: block;
+  margin-left: 95px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  width: 70%;
+  border: 1px solid lightgrey;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.comment-button{
+  display: inline;
+  color: #2f333d;
+  background-color: #1877F2;
+  border: #E4E6EB;
+  height: 30px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.comment-display-div {
+  text-align: center;
+  justify-content: center;
+  width: 80%;
+  background-color:  #F1F1F1;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-left: 40px;
+  padding: 15px;
+  box-shadow: 0.5px 1px 5px 1px lightgrey;
+}
+
+.comment-owner-div {
+  text-align: center;
+  justify-content: center;
+  width: 80%;
+  background-color: #f0f2f5;
+
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-left: 40px;
+  padding: 15px;
+
+}
+
+.inline{
+  display: inline;
+}
+
+
+// User Lists
+.list-link{
+  text-decoration: none;
+  color:#1877F2;
+}
+
+#black{
+  color: black;
+}
+
+// User Profiles
+#user-card-link-divs {
+  padding: 15px;
+  margin-top: 20px;
+  margin-left:8px;
+  margin-right: 8px;
+  width: 90%;
+  box-shadow: 0.5px 1px 5px 1px rgb(193, 193, 193);
+  background-color: #f0f2f5;
+}
+
+
 
 
 

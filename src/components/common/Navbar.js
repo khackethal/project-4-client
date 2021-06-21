@@ -8,7 +8,7 @@ function Navbar() {
   useLocation()
   const history = useHistory()
   // const location = useLocation()
-  const user = useSetUser()
+  const { user } = useSetUser()
 
   // const [isOpen, setIsOpen] = React.useState(false)
   const isLoggedIn = isAuthenticated()
@@ -36,9 +36,10 @@ function Navbar() {
           <NavLink activeClassName="active" className="navbar-link" to="/home"> Home</NavLink>
           <NavLink activeClassName="active"className="navbar-link" to="/profile"> Profile</NavLink>
           <NavLink activeClassName="active"className="navbar-link" to="/newtrip"> New Trip</NavLink>
-          <NavLink activeClassName="active"className="navbar-link" id="navbar-space" to="/explore"> Trip Inspiration</NavLink>
-          { user.user?.id && <img className="profile-image" height="50px" src={user.user.profileImage} alt="profile image" /> } 
-          { user.user?.id && <p className="navbar-username">Welcome, {user.user?.username}</p>} 
+          <NavLink activeClassName="active"className="navbar-link" id="navbar-space" to="/triplists"> Browse User Lists</NavLink>
+          {/* <NavLink activeClassName="active"className="navbar-link" id="navbar-space" to="/explore"> Trip Inspiration</NavLink> */}
+          { user?.id && <img className="profile-image" height="50px" src={user.profileImage} alt="profile image" /> } 
+          { user?.id && <p className="navbar-username">Welcome, {user?.username}</p>} 
           <button className="navbar-button" onClick={handleLogout}>Log out</button>
         </>}
     </nav>

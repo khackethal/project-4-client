@@ -14,3 +14,13 @@ Content-Type: application/json
   "passwordConfirmation": "pass"
 
 }
+
+### TRIP LIKE VIEW
+POST http://localhost:8000/api/trips/24/like/
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEwLCJleHAiOjE2MjQ4Njk4MTh9.al8FSKag25MQrT3zW-9mjRFQftEC1h5UJneD51df1Lk
+
+
+http://localhost:3000/triplists/14
+
+http://localhost:3000/home/triplists/14

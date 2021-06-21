@@ -15,6 +15,8 @@ export const TripLikePath = '/like/'
 export const commentPath = '/comments/'
 export const editPath = '/edit'
 
+export const allListsPath = '/trips/lists/'
+
 export function headers() {
   return {
     headers: { Authorization: `Bearer ${getToken()}` },
@@ -27,7 +29,7 @@ export function getAllTrips() {
 }
 
 export function getSingleTrip(tripId) {
-  return axios.get(`${baseUrl}${allTripsPath}${tripId}/`)
+  return axios.get(`${baseUrl}${allTripsPath}${tripId}/`, headers())
 }
 
 export function createTrip(formdata) {
@@ -43,8 +45,8 @@ export function deleteTrip(id) {
 }
 
 //* Comment on a Trip
-export function commentOnTrip(id){
-  return axios.post(`${baseUrl}${allTripsPath}${id}${commentPath}`, headers())
+export function commentOnTrip(id, formdata){
+  return axios.post(`${baseUrl}${allTripsPath}${id}${commentPath}`, formdata, headers())
 }
 
 //* Delete a comment
@@ -54,7 +56,7 @@ export function deleteCommentOnTrip(tripId, commentId) {
 
 //* Like/ unlike a trip toggle
 export function likeAndUnlikeTrip(id){
-  return axios.post(`${baseUrl}${allTripsPath}${id}${TripLikePath}`, headers())
+  return axios.post(`${baseUrl}${allTripsPath}${id}${TripLikePath}`, null, headers())
 }
 
 
@@ -83,4 +85,30 @@ export function editUserProfile(id, formdata) {
 }
 
 
-//* To add user list view routes
+//* User List View Routes -all Lists
+export function getAllUserLists() {
+  return axios.get(`${baseUrl}${allListsPath}`, headers())
+}
+
+//* create new list
+export function createNewList(formdata) {
+  return axios.post(`${baseUrl}${allListsPath}`, formdata, headers())
+
+}
+
+//* get single list
+export function getSingleUserList(listId) {
+  return axios.get(`${baseUrl}${allListsPath}${listId}`, headers())
+}
+
+//* delete a list
+export function deleteUserList(listId) {
+  return axios.delete(`${baseUrl}${allListsPath}${listId}`, headers())
+}
+
+//* ad or delete toggle function
+export function addOrRemoveTripFromList(tripId, listId) {
+  return axios.post(`${baseUrl}${allTripsPath}${listId}/list/${tripId}/`, null, headers())
+
+}
+

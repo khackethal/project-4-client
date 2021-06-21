@@ -26,7 +26,6 @@ export function removeUserId(){
 function getPayload() {
   const token = getToken()
 
-
   if (!token) return false
   const parts = token.split('.')
   if (parts.length < 3) return false
@@ -40,8 +39,8 @@ export function isAuthenticated() {
   return now < payload.exp
 }
 
-export function isOwner(userId) {
-  const payload = getPayload()
+export function isOwner(passedId) {
+  const userId1 = getUserId()
   if (!isAuthenticated()) return false
-  return payload.userId === userId
+  return Number(userId1) === Number(passedId)
 }

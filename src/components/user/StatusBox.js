@@ -2,6 +2,7 @@ import React from 'react'
 import useSetUser from '../hooks/SetUser'
 import { useForm } from '../hooks/useForm'
 import { editUserProfile } from '../../lib/api'
+import Loader from 'react-loader-spinner'
 
 
 
@@ -10,6 +11,7 @@ function StatusBox() {
 
   const { user, setUser } = useSetUser()
   const userId = user?.id
+  const [ statusPlaceholder, setStatusPlaceholder ] = React.useState(null)
 
   const { formData, handleChange } = useForm({
     status: '',
@@ -22,11 +24,15 @@ function StatusBox() {
     try {
       const res = await editUserProfile(userId, formData)
       console.log('res', res.data)
+      setStatusPlaceholder(`What's on your mind, ${user.username}?`)
       setUser( { ...user, status: res.data.status })
+
     } catch (err) {
       console.log(err)
     }
   }
+
+
 
 
   return (
@@ -41,12 +47,19 @@ function StatusBox() {
               onChange={handleChange}
               className="status-input" 
               width="100px"
-              placeholder={`What's on your mind, ${user?.username}?`}></input>
+              placeholder= {statusPlaceholder ?  { statusPlaceholder } : `What's on your mind, ${user?.username}?`}></input>
           </div>
           <div className="status-button-div">
             <button onClick={handleStatusSubmit} className="status-button">Submit Status</button>
           </div>
-        </div> : <p>...loading</p>}
+        </div> : 
+        <Loader
+          type="ThreeDots"
+          color="#1877F2"
+          height={100}
+          width={100}
+          timeout={3000} 
+        />}
     </>
   )
 }
