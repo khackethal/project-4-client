@@ -1,8 +1,8 @@
 import React from 'react'
 import Loader from 'react-loader-spinner'
 
-import SidebarRight from './SidebarRight'
-import { useHistory, useParams, Link } from 'react-router-dom'
+import SidebarLeft from './SidebarLeft'
+import { useParams, Link } from 'react-router-dom'
 
 import { userProfileView, getAllTrips, getAllUserLists } from '../../lib/api'
 
@@ -38,16 +38,13 @@ function OtherProfile() {
   const handleSetTripView = () => {
     setTripView(!tripView)
     setListView(false)
-
   }
 
   const handleSetListView = () => {
     setListView(!listView)
-    console.log(listView)
     setTripView(false)
   }
 
-  console.log(userLists)
 
   return (
     <>
@@ -55,7 +52,7 @@ function OtherProfile() {
 
         <div className="homepage-container">
 
-          <SidebarRight />
+          <SidebarLeft />
 
           <div id="growth" className="middle-container">
 
@@ -69,15 +66,14 @@ function OtherProfile() {
                 </div>
                 <div className="card-bottom-div"> 
                   <div id="user-card-link-divs">
-                    <h1 className="trip-name">{user.username}'s Trips</h1>
+                    <h1 className="trip-name">{user.username}&apos;s Trips</h1>
                     <button onClick={handleSetTripView}>Show</button>
                   </div>
                   <div id="user-card-link-divs">
-                    <h1 className="trip-name">{user.username}'s Lists</h1>
+                    <h1 className="trip-name">{user.username}&apos;s Lists</h1>
                     <button onClick={handleSetListView}>Show</button>
                   </div>
                 </div>
-
               </div> : 
               <Loader
                 type="ThreeDots"
@@ -87,11 +83,9 @@ function OtherProfile() {
                 timeout={3000} 
               />}
 
-
             {tripView && 
-
               <>
-                { trips ? trips.filter(trip => trip.owner.id == userId).map(trip =>
+                { trips ? trips.filter(trip => Number(trip.owner.id) === Number(userId)).map(trip =>
                   <div className="trip-feed-div" key={trip.id}>
                     <Link to={`/home/${trip.id}`} >
                       <img className="trip-image" src={trip.image} alt="trip image"/> </Link>
@@ -130,7 +124,7 @@ function OtherProfile() {
             {listView && 
 
             <>
-              { userLists ? userLists.filter(list => list.owner.id == userId).map(list =>
+              { userLists ? userLists.filter(list => Number(list.owner.id) === Number(userId) && list.isPublic === true).map(list =>
                 <div className="trip-feed-div" key={list.id}>
                   <Link className="list-link" to={`/home/triplists/${list.id}`} >
 
@@ -138,9 +132,6 @@ function OtherProfile() {
                     <div className="trip-name" id="black">{list.listName}</div> </Link>
                   <div className="card-bottom-div"> 
                     <div id="liked-by">
-                      <p id="like-button">💙 </p>
-                      {list.likedBy ? <p id="number-of-likes">{list.likedBy.length}</p> : <p id="number-of-likes"> 0</p>}
-                      {list.comments ? <p>Comments: {list.comments.length} </p> : <p>No comments yet.</p>}
                       <Link className="home-link" to={`/home/triplists/${list.id}`} >
                         <button className="status-button">View More</button>
                       </Link>
@@ -162,7 +153,6 @@ function OtherProfile() {
                   timeout={3000} 
                 /> }
             </>}
-
 
 
           </div>

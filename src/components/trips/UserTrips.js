@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner'
 
 import { getAllTrips } from '../../lib/api'
 import SetUser from '../hooks/SetUser'
-import SidebarRight from '../user/SidebarRight'
+import SidebarLeft from '../user/SidebarLeft'
 
 
 
@@ -32,12 +32,11 @@ function UserTrips() {
   }, [])
 
 
-
   return (
     <>
       <div>
         <div className="homepage-container">
-          <SidebarRight />
+          <SidebarLeft />
 
           <div id="growth" className="middle-container">
 

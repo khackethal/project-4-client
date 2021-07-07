@@ -1,7 +1,7 @@
 import React from 'react'
 
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
-// console.log(uploadPreset)
+
 
 function ImageUpload({ onUpload }) {
   const [image, setImage] = React.useState('')
@@ -12,7 +12,7 @@ function ImageUpload({ onUpload }) {
       .createUploadWidget(
         {
           cloudName: 'dvxtec1zs',
-          uploadPreset: 'dw7nlouv',
+          uploadPreset: uploadPreset,
           sources: ['local'],
           multiple: false,
         }, (err, result) => {

@@ -1,4 +1,7 @@
 
+### SHOW ALL TRIPS
+GET http://localhost:8000/api/trips/
+Content-Type: application/json
 
 
 ### REGISTER A USER

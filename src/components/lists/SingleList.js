@@ -7,7 +7,7 @@ import Loader from 'react-loader-spinner'
 import { isOwner } from '../../lib/auth'
 
 
-import SidebarRight from '../user/SidebarRight'
+import SidebarLeft from '../user/SidebarLeft'
 import { 
   getSingleUserList, 
   deleteUserList,
@@ -99,7 +99,7 @@ function SingleList() {
     <>
       <div>
         <div className="homepage-container">
-          <SidebarRight />
+          <SidebarLeft />
 
           <div id="growth" className="middle-container">
 

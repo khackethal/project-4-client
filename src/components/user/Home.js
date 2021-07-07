@@ -1,6 +1,5 @@
 import React from 'react'
-// import useSetUser from '../hooks/SetUser'
-import SidebarRight from './SidebarRight'
+import SidebarLeft from './SidebarLeft'
 import StatusBox from './StatusBox'
 import AllTrips from '../trips/AllTrips'
 
@@ -10,9 +9,6 @@ import AllTrips from '../trips/AllTrips'
 function Home() {
 
 
-  // const user = useSetUser()
-
-
 
   return (    
     <>
@@ -20,7 +16,7 @@ function Home() {
 
         <div className="homepage-container">
 
-          <SidebarRight />
+          <SidebarLeft />
 
           <div id="growth" className="middle-container">
 

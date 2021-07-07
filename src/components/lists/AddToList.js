@@ -12,7 +12,6 @@ function AddToList() {
   const { user } = useSetUser()
   const username = user?.username
   const [userLists, setUserLists ] = React.useState(null)
-  // const [ userFilteredLists, setUserFilteredLists ] = React.userState(null)
   const [ listId, setListId ] = React.useState(null)
 
   const { tripId } = useParams()
@@ -28,6 +27,7 @@ function AddToList() {
       try {
         const res = await getAllUserLists()
         setUserLists(res.data)
+        console.log(res.list.trips)
       } catch (e) {
         console.log(e)
       }
@@ -45,8 +45,8 @@ function AddToList() {
     e.preventDefault()
 
     try {
+      // eslint-disable-next-line
       const res = await addOrRemoveTripFromList(tripId, listId)
-      console.log('res', res.data)
       history.push(`triplists/${listId}`)
 
     } catch (err) {

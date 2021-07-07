@@ -5,7 +5,7 @@ import MapboxSearch from '../mapbox/MapboxSearch'
 import ImageUploadField from './ImageUploadField'
 import { useForm } from '../hooks/useForm'
 import { createTrip } from '../../lib/api'
-import SidebarRight from '../user/SidebarRight'
+import SidebarLeft from '../user/SidebarLeft'
 
 function NewTrip() {
 
@@ -54,7 +54,7 @@ function NewTrip() {
     <>
       <div className="homepage-container">
 
-        <SidebarRight />
+        <SidebarLeft />
 
         <div id="growth" className="middle-container">
           <h1 className="uppercase">Create Your Trip</h1>
@@ -85,7 +85,6 @@ function NewTrip() {
 
               <div>Location</div>
             
-
               <input
                 className={`input ${formError.location || formError.errMessage ? 'is-danger' : ''}`}
                 type="text"

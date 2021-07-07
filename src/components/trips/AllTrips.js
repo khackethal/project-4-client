@@ -8,10 +8,7 @@ function AllTrips() {
 
 
   const [ trips, setAllTrips ] = React.useState(null)
-  // const [ userTripsSelected, setUserTripsSeletced ] = React.useState(false)
   const [searchTerm, setSearchTerm] = React.useState('')
-
-
 
 
   React.useEffect(() => {
@@ -21,6 +18,7 @@ function AllTrips() {
       try {
         const res = await getAllTrips()
         setAllTrips(res.data)
+        console.log(res.data)
       } catch (e) {
         console.log(e)
       }
@@ -38,7 +36,6 @@ function AllTrips() {
     setSearchTerm('')
   }
   
-  
   const filteredTrips = trips?.filter((trip) => {
     return (
       trip.name.toLowerCase().includes(searchTerm) ||
@@ -52,7 +49,6 @@ function AllTrips() {
 
   return (
     <>
-
       <div className="trip-feed-div">
         <input
           placeholder="Search your Trip feed ..."

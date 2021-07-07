@@ -13,7 +13,6 @@ function Home(){
   const [registerPopUp, setRegisterPopUp] = React.useState(false)
   const [ isRegistered, setIsRegistered ] = React.useState(false)
  
-
   const handleAboutPopUp = () => {
     setAboutPopUp(!aboutPopUp)
   }
@@ -73,8 +72,6 @@ function Home(){
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault()
-
-
     try {
       const req = await registerUser(registerFormData)
       setToken(req.data.token)
@@ -84,13 +81,6 @@ function Home(){
       setIsRegisterError(err.response.data)
     }
   }
-
-
-
-
-
-
-  
 
   return (
     <>
@@ -109,7 +99,6 @@ function Home(){
             </div>
           </div>
 
-
           {!aboutPopUp && <div className="home-div">
 
             {!registerPopUp && isRegistered && <p>Registration succesful! Please log in.</p>}
@@ -127,6 +116,7 @@ function Home(){
                 className="register-input"
                 placeholder="Password"
                 name="password"
+                type="password"
                 onChange={handleLogInChange}>          
               </input>
               <br></br>
@@ -134,9 +124,7 @@ function Home(){
               {isLogInError && <p>No match for provided details, please double check email and password</p>}
               <br></br>
               <button className="btn-grad" onClick={handleRegisterPopUp}> Create New Account</button>
-              
             </form>}
-
 
             {registerPopUp && <form>
               <input
@@ -163,7 +151,6 @@ function Home(){
                 <ImageUploadField onUpload={handleUpload} />
               </div>
 
-
               <p>
                 {isRegisterError.profileImage && <small>Profile Image is required</small>}
               </p>
@@ -189,6 +176,7 @@ function Home(){
                 className="register-input"
                 placeholder="Password"
                 name="password"
+                type="password"
                 onChange={handleRegisterChange}>          
               </input>
               <p>
@@ -198,6 +186,7 @@ function Home(){
                 className="register-input"
                 placeholder="Password confirmation"
                 name="passwordConfirmation"
+                type="password"
                 onChange={handleRegisterChange}>          
               </input>
               <p>
@@ -206,9 +195,6 @@ function Home(){
               <button className="btn-grad"  onClick={handleRegisterSubmit}> Sign Up</button>
               <div ><button className="about-button" onClick={handleRegisterPopUp}>x</button></div>
             </form>}
-
-
-
           </div>}
 
         </div>
@@ -219,9 +205,7 @@ function Home(){
         </footer>
       </div>
     </>
-
   )
-
 }
 
 export default Home

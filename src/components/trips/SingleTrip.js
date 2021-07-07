@@ -8,13 +8,10 @@ import Loader from 'react-loader-spinner'
 import { publicToken } from '../../lib/mapbox'
 import { isOwner } from '../../lib/auth'
 
-
-
-import SidebarRight from '../user/SidebarRight'
+import SidebarLeft from '../user/SidebarLeft'
 import AddToList from '../lists/AddToList'
 import { 
   getSingleTrip, 
-  // EditTrip ,
   deleteTrip, 
   commentOnTrip, 
   deleteCommentOnTrip, 
@@ -111,7 +108,6 @@ function SingleTrip() {
     console.log(e.target.name)
 
     try {
-
       await deleteCommentOnTrip(tripId, e.target.name),
       headers()
       setHasComments(!hasComments)
@@ -131,7 +127,6 @@ function SingleTrip() {
         {
           label: 'Yes',
           onClick: async() => {
-
             await deleteTrip(tripId)
             history.push('/home')
             
@@ -153,26 +148,22 @@ function SingleTrip() {
     history.push(`/home/${tripId}/edit/`)
   }
 
-
-
-
-
   return (
     <>
       <div>
         <div className="homepage-container">
-          <SidebarRight />
+          <SidebarLeft />
 
           <div id="growth" className="middle-container">
 
             {trip ? 
               <>
                 <div className="trip-feed-div" key={trip.id}>
-                  <img className="trip-image" src={trip.image} alt="trip image"/> 
+                  <div className="image-div">
+                    <img className="trip-image" src={trip.image} alt="trip image"/> 
+                  </div>
                   <div className="trip-name">{trip.name}</div>
                   <div id="description-div">
-                    <p>{trip.description}</p>
-                    <p>{trip.description}</p>
                     <p>{trip.description}</p>
                   </div>
 

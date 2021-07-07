@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner'
 
 import { getAllUserLists } from '../../lib/api'
 import SetUser from '../hooks/SetUser'
-import SidebarRight from '../user/SidebarRight'
+import SidebarLeft from '../user/SidebarLeft'
 import CreateNewList from './CreateNewList'
 
 
@@ -36,8 +36,6 @@ function UserLists() {
 
   const setCreateList = () => {
     toggleCreateList(!createList)
-    console.log(createList)
-
   }
 
 
@@ -45,10 +43,10 @@ function UserLists() {
     <>
       <div>
         <div className="homepage-container">
-          <SidebarRight />
+          <SidebarLeft />
 
           <div id="growth" className="middle-container">
-            <h1 className="uppercase">{username}'s Lists</h1>
+            <h1 className="uppercase">{username}&apos;s Lists</h1>
 
             <div></div>
 

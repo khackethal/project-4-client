@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom'
 import useSetUser from '../hooks/SetUser'
 import { useForm } from '../hooks/useForm'
 import { createNewList } from '../../lib/api'
+// eslint-disable-next-line
+import Error from '../auth/Error'
 import Loader from 'react-loader-spinner'
-
-
 
 
 
@@ -14,9 +14,8 @@ import Loader from 'react-loader-spinner'
 function CreateNewList() {
 
   const { user } = useSetUser()
+  const [ Error, setIsError ] = React.useState(false)
   const history = useHistory()
-
-  // const [ isPublic, setIsPublic ] = React.useState(true)
 
   const { formData, handleChange } = useForm({
     listName: '',
@@ -31,11 +30,9 @@ function CreateNewList() {
 
     try {
       const res = await createNewList(formData)
-      console.log('res', res.data)
       history.push(`home/triplists/${res.data.id}`)
-
     } catch (err) {
-      console.log(err)
+      setIsError(true)
     }
   }
 
@@ -44,6 +41,8 @@ function CreateNewList() {
 
   return (
     <>
+      { Error &&
+      < Error />  }
       { user?.username ? 
         <div >
           <div className="input-div">
@@ -55,16 +54,14 @@ function CreateNewList() {
               placeholder= {'New List Name'}></input>
           </div>
           <div>
-            {/* <p> Set to Private : </p>
-            
+            <p> Set to Private : </p>
             <label>
               <input type="checkbox"
                 name="isPublic"
-                value={isPublic}
-                // onChange={handleChange}
-                // onChange={() => value="false"}
+                value={false}
+                onChange={handleChange}
               />
-            </label> */}
+            </label>
           </div>
           <div className="status-button-div">
             <button onClick={handleListSubmit} className="status-button">Create List</button>

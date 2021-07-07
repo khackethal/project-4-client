@@ -5,9 +5,8 @@ import { userProfileView } from '../../lib/api'
 function useSetUser() {
 
   const userId = getUserId()
-
   const [user, setUser] = React.useState(null)
-
+  const [error, setIsError] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -15,16 +14,17 @@ function useSetUser() {
         const result = await userProfileView(userId)
         setUser(result.data)
       } catch (e) {
-        console.log(e)
+        setIsError(true)
       }
     }
     getData()
   },[userId])
 
-
   return {
     user,
     setUser,
+    error,
+    setIsError,
   }
 
 }

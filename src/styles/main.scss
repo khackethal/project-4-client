@@ -406,6 +406,11 @@ about-button:hover{
   box-shadow: 0.5px 1px 5px 1px lightgrey;
 }
 
+// .image-div{
+//   display: flex;
+//   flex-grow: 1;
+// }
+
 .mapbox-div {
   display:flex;
   justify-content:center;
@@ -593,6 +598,17 @@ about-button:hover{
   width: 90%;
   box-shadow: 0.5px 1px 5px 1px rgb(193, 193, 193);
   background-color: #f0f2f5;
+}
+
+.profile-image-button{
+  display: inline;
+  color: #2f333d;
+  background-color: #1877F2;
+  border: #E4E6EB;
+  height: 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 

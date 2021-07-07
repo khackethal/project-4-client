@@ -11,10 +11,12 @@ import Profile from './components/user/Profile'
 import OtherProfile from './components/user/OtherProfile'
 import NewTrip from './components/trips/NewTrip'
 import SingleTrip from './components/trips/SingleTrip'
+import EditATrip from './components/trips/EditTrip'
 import UserTrips from './components/trips/UserTrips'
 import UserLists from './components/lists/UserLists'
 import AllLists from './components/lists/AllLists'
 import SingleList from './components/lists/SingleList'
+
 
 
 
@@ -36,6 +38,7 @@ function App() {
           < SecureRoute exact path="/usertriplists" component={UserLists} />
           < SecureRoute exact path="/home/triplists/:listId" component={SingleList} />
           < SecureRoute exact path="/triplists" component={AllLists} />
+          < SecureRoute path="/home/:tripId/edit/" component={EditATrip} />
           < SecureRoute path="/home/:tripId" component={SingleTrip} />
           < SecureRoute path="/home" component={Home}/> 
           < SecureRoute path="/profile/:userId" component={OtherProfile}/>

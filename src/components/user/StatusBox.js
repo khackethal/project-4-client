@@ -3,8 +3,7 @@ import useSetUser from '../hooks/SetUser'
 import { useForm } from '../hooks/useForm'
 import { editUserProfile } from '../../lib/api'
 import Loader from 'react-loader-spinner'
-
-
+import Error from '../auth/Error'
 
 
 function StatusBox() {
@@ -12,12 +11,13 @@ function StatusBox() {
   const { user, setUser } = useSetUser()
   const userId = user?.id
   const [ statusPlaceholder, setStatusPlaceholder ] = React.useState(null)
+  const [error, setIsError] = React. useState(false)
 
   const { formData, handleChange } = useForm({
     status: '',
 
   })
-
+  
   const handleStatusSubmit = async (e) => {
     e.preventDefault()
 
@@ -28,11 +28,9 @@ function StatusBox() {
       setUser( { ...user, status: res.data.status })
 
     } catch (err) {
-      console.log(err)
+      setIsError(true)
     }
   }
-
-
 
 
   return (
@@ -60,6 +58,7 @@ function StatusBox() {
           width={100}
           timeout={3000} 
         />}
+      {error && <Error />}
     </>
   )
 }

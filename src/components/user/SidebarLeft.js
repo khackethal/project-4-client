@@ -5,7 +5,7 @@ import Loader from 'react-loader-spinner'
 
 
 
-function SidebarRight () {
+function SidebarLeft () {
 
   const { user } = useSetUser()
 
@@ -95,9 +95,6 @@ function SidebarRight () {
           <div className="empty-container">
             <p className="username"></p>
           </div> 
-
-
-
         </div>
 
         
@@ -115,4 +112,4 @@ function SidebarRight () {
 
 }
 
-export default SidebarRight
+export default SidebarLeft

@@ -25,7 +25,7 @@ export function headers() {
 
 //* View all/ single Trips, edit, delete create Trips
 export function getAllTrips() {
-  return axios.get(`${baseUrl}${allTripsPath}`)
+  return axios.get(`${baseUrl}${allTripsPath}`, headers())
 }
 
 export function getSingleTrip(tripId) {
@@ -82,6 +82,11 @@ export function userProfileView(userId){
 //* Edit Profile View
 export function editUserProfile(id, formdata) {
   return axios.put(`${baseUrl}${userProfileViewPath}${id}/edit/`, formdata, headers())
+}
+
+//* Edit Profile Image View
+export function editUserProfileImage(id, formdata) {
+  return axios.put(`${baseUrl}${userProfileViewPath}${id}/edit/image/`, formdata, headers())
 }
 
 
