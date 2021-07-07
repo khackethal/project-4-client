@@ -22,11 +22,11 @@ For the best user experience I would recommend to register with a name and profi
    - [Front End](https://github.com/khackethal/project-4-client#front-end)
 4. [Challenges](https://github.com/khackethal/project-4-client#challenges)
 5. [Key Learnings](https://github.com/khackethal/project-4-client#key-learnings)
-6. [Conclusions](https://github.com/khackethal/project-4-client#conclusions)
+6. [Conclusions & Future Features](https://github.com/khackethal/project-4-client#conclusions)
 
 ## Brief
 
-Create a full-stack application with its own front end and back end. Use a Python Django API, using a Django REST Framewrok to serve data from a Postgres Database. Consume the API with a React front end.  
+Create a full-stack application with its own Front End and Back End. Use a Python Django API, using a Django REST Framewrok to serve data from a Postgres Database. Consume the API with a React front end.  
 Create a complete product with multiple relationships and CRUD functionality. Implement thoughtful user stories and have a visually impressive design. Deploy online so it's publicly accessible.
 
 ## Approach
@@ -42,7 +42,7 @@ My main priority was creating a seamless user experience, allowing a journey thr
 - Easy travel through the app between trips, lists and other user profiles, with everyting the user would expect to be a link actually being one
 - Building the entire React frontend with pure CSS from scratch, not using any libraries or frameworks
 
-A stretch goal I dind't have time to implement was a messaging functionality between users, which I might revisit in the coming weeks.
+A stretch goal I dind't have time to implement was a messaging functionality between users, which I might revisit in the coming weeks. Please see below for other future features.
 
 
 ### Technologies/ Frameworks/ APIs
@@ -80,7 +80,7 @@ N. B it was optional to work in groups for this project, I chose to work solo to
 
 ## Planning
 
-I spent a great deal of time in the planning phase, thinking through the backend relationships and the user journey through the app. Below are my initial diagrams for both Back End and Front End, the finished app hardly deviates from them due to the extended planning phase.
+I spent a great deal of time in the planning phase, thinking through the Back End relationships and the user journey through the app. Below are my initial diagrams for both Back End and Front End, the finished app hardly deviates from them due to the extended planning phase.
 
 
 ### Back End 
@@ -359,10 +359,90 @@ function StatusBox() {
 export default StatusBox
 ```
 
+
 The main feature of the app is the ability to create future tip wishlists by adding trips other users have posted. User have the opportunty to set their lists as either "public" (visibile to all other users) or "private"(visible only to them). 
+This is achieved simply by a tickbox setting a boolean list property "isPublic" to false if the user selects it as per the code below.
+In any public pages lists will be filtered to only be displayed if "isPublic" is true.
+
+```
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+
+import useSetUser from '../hooks/SetUser'
+import { useForm } from '../hooks/useForm'
+import { createNewList } from '../../lib/api'
+// eslint-disable-next-line
+import Error from '../auth/Error'
+import Loader from 'react-loader-spinner'
 
 
-Other than the cusomisation the app follows the typical React patterns of fetching, mapping or fitering and then displaying data. 
+function CreateNewList() {
+
+  const { user } = useSetUser()
+  const [ Error, setIsError ] = React.useState(false)
+  const history = useHistory()
+
+  const { formData, handleChange } = useForm({
+    listName: '',
+    isPublic: 'true',
+
+  })
+
+  const handleListSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const res = await createNewList(formData)
+      history.push(`home/triplists/${res.data.id}`)
+    } catch (err) {
+      setIsError(true)
+    }
+  }
+
+
+
+
+  return (
+    <>
+      { Error &&
+      < Error />  }
+      { user?.username ? 
+        <div >
+          <div className="input-div">
+            <input 
+              name="listName" 
+              onChange={handleChange}
+              className="status-input" 
+              width="100px"
+              placeholder= {'New List Name'}></input>
+          </div>
+          <div>
+            <p> Set to Private : </p>
+            <label>
+              <input type="checkbox"
+                name="isPublic"
+                value={false}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div className="status-button-div">
+            <button onClick={handleListSubmit} className="status-button">Create List</button>
+          </div>
+        </div> : 
+        <Loader
+          type="ThreeDots"
+          color="#1877F2"
+          height={100}
+          width={100}
+          timeout={3000} 
+        />}
+    </>
+  )
+}
+
+export default CreateNewList
+```
 
 ### Challenges & Bugs
 
@@ -380,6 +460,10 @@ To solve this temporatily, I've added another map component above the edit funct
 
 ### Key Learnings
 
+The project was a great way to learn Python, Django and SQL, and to see how easily they work together to create fairly complex relationships.
+I also got a lot better at reading error messages. Quite often if I dind't know exactly how to make something work I would write the code that logically seemed the closests and then go by the error messages to tweak it and make it work. 
+Finally the project served to consolidate my React skills, I really learned just how easy it is to extract logic into smaller components and dispay them on the page according to a React state set by user interaction, and how Front End and Back End can work together to display the exact data needed. 
+
 
 
 ### Conclusions & Future Features
@@ -387,11 +471,11 @@ To solve this temporatily, I've added another map component above the edit funct
 Due to time contraints I didn't meet a few of my goals, namely:
 
 1) Messaging between users
-2) A more extensive user profile which includes a cover image, and single buttons to edit each section with one click
+2) A more extensive user profile which includes a cover image, and single buttons to edit each section with one click, similar to the current "update status" and "update profile image"
 3) Mobile responsiveness - the page currently works fine viewed on desktop, but starts looking strange for a screen size less than 1100px wide
+4) Refactoring code - I feel most current pages could be borken down into further components, with the finalised main pages not containing any logic at all, simply componenets such as < Sidebar />. The current Home.js page is a good example for this.
 
-
-
+In conlusion this was a fun project to take on, I really enjoyed creating the relationships between different componenets in the Back End, and then using the Front End to filter, map and link them to create a seamless user experience.
 
 
 

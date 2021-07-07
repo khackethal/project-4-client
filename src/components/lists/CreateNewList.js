@@ -9,8 +9,6 @@ import Error from '../auth/Error'
 import Loader from 'react-loader-spinner'
 
 
-
-
 function CreateNewList() {
 
   const { user } = useSetUser()
@@ -22,8 +20,6 @@ function CreateNewList() {
     isPublic: 'true',
 
   })
-
-  console.log(formData)
 
   const handleListSubmit = async (e) => {
     e.preventDefault()
