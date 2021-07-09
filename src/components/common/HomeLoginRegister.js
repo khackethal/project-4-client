@@ -38,11 +38,8 @@ function Home(){
 
     try {
       const req = await loginUser(logInFormData)
-      console.log(req.data)
       setToken(req.data.token)
       setUserId(req.data.userId)
-      console.log(req.data.userId)
-      console.log('logged in!')
       history.push('/home')
     } catch (err) {
       setLogInError(true)
@@ -88,14 +85,17 @@ function Home(){
         <div className="home-main">
           <div className="home-section">
             {!aboutPopUp ? <h1 className="home-h1">tripbook</h1> : <h1></h1>}
-            <div className="popup-div">
+            {/* <div>
               {aboutPopUp && <button className="login-button" onClick={handleAboutPopUp}>Close PopUp</button>}
-            </div>
+            </div> */}
             {!aboutPopUp && <h2 className="home-h2">Helps you connect and share with the people in your life - through trips.</h2>}
             
             <div className="popup-div">
               {!aboutPopUp && <button className="about-button" onClick={handleAboutPopUp}>About</button>}
-              { aboutPopUp &&  < AboutPopup /> }
+              { aboutPopUp && <div className="popup">
+                <button className="login-button" onClick={handleAboutPopUp}>Close PopUp</button>
+                < AboutPopup /> 
+              </div>}
             </div>
           </div>
 

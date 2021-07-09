@@ -12,6 +12,10 @@
   height: 90vh;
 }
 
+.popup{
+  height: 90vh !important;
+}
+
 .home-section{
   flex: 1;
   background-color: #f0f2f5; 
@@ -35,26 +39,7 @@
   font-weight: 500;
   font-size: 35px;
 }
-.popup-div{
-  margin-left: 22px;
 
-}
-
-.carousel-carousel-slider{
-  width: 90% !important;
-}
-// .slider-wrapper-axis-horizontal{
-//   height: 600px !important
-// }
-
-.carousel-root{
-  height: 200px !important;
-  margin-bottom: 1000px !important;
-}
-
-#pop-up{
-  height: 500px !important;               
-}
 
 .home-about-button{
   margin: 28px;

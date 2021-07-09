@@ -29,7 +29,6 @@ function AllLists() {
       try {
         const res = await getAllUserLists()
         setAllLists(res.data)
-        console.log(res.data)
       } catch (e) {
         setIsError(true)
       }

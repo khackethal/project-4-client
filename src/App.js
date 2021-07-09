@@ -17,20 +17,21 @@ import UserLists from './components/lists/UserLists'
 import AllLists from './components/lists/AllLists'
 import SingleList from './components/lists/SingleList'
 
-
-
+// import { isAuthenticated } from './lib/auth'
 
 function App() {
 
-
+  // const isLoggedIn = isAuthenticated()
 
   return (
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={HomeLoginRegister} />x
+          <Route exact path="/" component={HomeLoginRegister} />
         </Switch>
-      
+
+
+        
         <Navbar />
         <Switch>
           < SecureRoute path="/newtrip" component={NewTrip} />
@@ -43,9 +44,9 @@ function App() {
           < SecureRoute path="/home" component={Home}/> 
           < SecureRoute path="/profile/:userId" component={OtherProfile}/>
           < SecureRoute exact path="/profile/" component={Profile}/> 
-          < SecureRoute component={Error} />
+          < SecureRoute path="*" component={Error} /> 
     
-        </Switch>
+        </Switch> 
       </BrowserRouter>
     </div> 
   )

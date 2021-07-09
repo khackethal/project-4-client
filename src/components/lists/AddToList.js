@@ -27,7 +27,6 @@ function AddToList() {
       try {
         const res = await getAllUserLists()
         setUserLists(res.data)
-        console.log(res.list.trips)
       } catch (e) {
         console.log(e)
       }
@@ -37,7 +36,6 @@ function AddToList() {
 
   const handleChange = (e) => {
     setListId(e.target.value)
-    console.log(listId)
   }
 
 

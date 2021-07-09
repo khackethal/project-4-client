@@ -31,3 +31,18 @@ http://localhost:3000/home/triplists/14
 ###
 
 GET https://tripbook-server.herokuapp.com/api/trips/
+
+### REGISTER A USER
+
+POST https://tripbook-server.herokuapp.com/api/auth/register/
+Content-Type: application/json
+
+{ "username": "kat222",
+  "email": "kat@email.com22",
+  "profileImage": "image.jpg",
+  "userCountry": "UK",
+  "userCity": "UK",
+  "password": "pass",
+  "passwordConfirmation": "pass"
+
+}

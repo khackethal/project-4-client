@@ -8,7 +8,7 @@ function AboutPopup() {
   return (
     <>
       <Carousel>
-        <div className="carousel-div" id="pop-up">
+        <div>
           <img src="https://i.imgur.com/UsKJU4G.jpg" />
         </div>
         <div>
