@@ -27,3 +27,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEwLCJleHAiO
 http://localhost:3000/triplists/14
 
 http://localhost:3000/home/triplists/14
+
+###
+
+GET https://tripbook-server.herokuapp.com/api/trips/
