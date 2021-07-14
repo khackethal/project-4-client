@@ -22,7 +22,7 @@ For the best user experience I would recommend to register with a name and profi
    - [Front End](https://github.com/khackethal/project-4-client#front-end)
 4. [Project Frames](https://github.com/khackethal/project-4-client#project-frames)
 5. [Wins & Challenges](https://github.com/khackethal/project-4-client#wins)
-6. [Key Learnings & Future Features](https://github.com/khackethal/project-4-client#key-learnings)
+6. [Key Learnings and Future Features](https://github.com/khackethal/project-4-client#key-learnings-and-future-features)
 
 
 ## Brief
