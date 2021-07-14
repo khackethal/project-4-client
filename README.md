@@ -455,7 +455,7 @@ export default CreateNewList
 
 ![ User Homepage](.readme_files/tripbook-userhomepage.png)
 
-## Wins & Challenges & Bugs
+## Wins, Challenges & Bugs
 
 ### Wins
 
@@ -481,11 +481,17 @@ Then secondly, I found React-Responsive-Carousel extremely easy to integrate, bu
 
 
 
-### Key Learnings
+### Key Learnings & Future Features
 
 The project was a great way to learn Python, Django and SQL, and to see how easily they work together to create fairly complex relationships.
 I also got a lot better at reading error messages. Quite often if I didn't know exactly how to make something work I would write the code that logically seemed the closest and then go by the error messages to tweak it and make it work. 
 Finally the project served to consolidate my React skills, I really learned just how easy it is to extract logic into smaller components and display them on the page according to a React state set by user interaction, and how Front End and Back End can work together to display the exact data needed. 
+
+There are a couple of features I would like to revisit in the future given the time, namely:
+
+1) Messaging function between users
+2) A more personalised user profile, adding more routes to easily update each single bit of information, similar to the current "update profile picture" and "update status" functionality
+
 
 
 
