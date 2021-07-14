@@ -472,12 +472,10 @@ Regarding the Backend, the main win was how easy it was to pick up Python coming
 The main challenge on this project was definitely time, it was an ambitious app to complete in 8 days, especially given that no CSS frameworks were used.
 While most bugs were fixed by the end of the project a couple still remain. 
 
-On the single trip view, the function to filter out user lists that the trip has already been added to currently downs't work, the path breaks with "cannot read property "includes" of undefined". This means currently a user list will appear with the option to add even if the trip has already been added. As the function is a toggle function clicking add again will actually remove the trip from the list.
-Possible solutions: 
-1) Filter the lists before mapping over them, rather than do the map and filter in one go which results in the error. 
-2) Change the backend to have one "add" and one "delete" path.
+First, there is a small bug that when a logged in user navigates back to the homepage, the error page displays below it if they scroll down.
+This is caused by the Error Component not having a route path assigned, however assigning the usual '/*' also causes some unwanted behaviour.
 
-Then secondly, I found React-Responsive-Carousel extremely easy to integrate, but quite hard to style. It's currently displaying too large, making the user scroll to see the full slide height.
+Then secondly, I found React-Responsive-Carousel extremely easy to integrate, but quite hard to style. It's currently displaying too large, making the user scroll to see the full slide height. I might replace it with React-elastic-Carousel in the future.
 
 
 
