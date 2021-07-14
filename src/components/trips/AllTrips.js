@@ -44,8 +44,6 @@ function AllTrips() {
   })
 
 
-
-
   return (
     <>
       <div className="trip-feed-div">

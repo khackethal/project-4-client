@@ -5,7 +5,7 @@
 
 A social media network that allows users to create a profile for themselves, share favourite past trips they have been on and create and manage wish lists for future trips. 
 
-[Try it out.](insert link to deployed app)
+[Try it out.](https://tripbook.netlify.app/)
 
 For the best user experience I would recommend to register with a name and profile photo, to fully see the customisation per user across the app. 
 
@@ -20,9 +20,10 @@ For the best user experience I would recommend to register with a name and profi
 3. [Planning](https://github.com/khackethal/project-4-client#planning)
    - [Back End](https://github.com/khackethal/project-4-client#back-end)
    - [Front End](https://github.com/khackethal/project-4-client#front-end)
-4. [Challenges](https://github.com/khackethal/project-4-client#challenges)
-5. [Key Learnings](https://github.com/khackethal/project-4-client#key-learnings)
-6. [Conclusions & Future Features](https://github.com/khackethal/project-4-client#conclusions)
+4. [Project Frames](https://github.com/khackethal/project-4-client#project-frames)
+5. [Wins & Challenges](https://github.com/khackethal/project-4-client#wins)
+6. [Key Learnings](https://github.com/khackethal/project-4-client#key-learnings)
+7. [Conclusions & Future Features](https://github.com/khackethal/project-4-client#conclusions)
 
 ## Brief
 
@@ -444,6 +445,28 @@ function CreateNewList() {
 export default CreateNewList
 ```
 
+## Project Frames
+
+### Login page
+
+![ Login Page](.readme_files/tripbook-login.png)
+
+### User Homepage
+
+![ User Homepage](.readme_files/tripbook-userhomepage.png)
+
+## Wins & Challenges & Bugs
+
+### Wins
+
+There were two major Frontend wins- 
+Firstly, I gained a much deeper understanding of React and how to create and use hooks, plus how amazingly easy it is to create and tweak components for specific tasks and page elements.
+
+Secondly, given that there were so many things I didn't know exactly how to achieve going into the project I learned to quickly find answers using available resources such as Stackoverflow.
+
+Regarding the Backend, the main win was how easy it was to pick up Python coming from JavaScript. Also with both Python and Django working in the way you intuitively would expect them to, writing the complete Backend only took me one day, enabling me to really focus on the Frontend features I wanted to implement.
+
+
 ### Challenges & Bugs
 
 The main challenge on this project was definitely time, it was an ambitious app to complete in 8 days, especially given that no CSS frameworks were used.
@@ -454,8 +477,8 @@ Possible solutions:
 1) Filter the lists before mapping over them, rather than do the map and filter in one go which results in the error. 
 2) Change the backend to have one "add" and one "delete" path.
 
-Then secondly, on the edit trip function the map is not zooming into the previous trip location. The information is there in the backend, so if the user does not edit the map it will remain the same, however currently the zoom is missing. 
-To solve this temporarily, I've added another map component above the edit function to show the correct current location.
+Then secondly, I found React-Responsive-Carousel extremely easy to integrate, but quite hard to style. It's currently displaying too large, making the user scroll to see the full slide height.
+
 
 
 ### Key Learnings
