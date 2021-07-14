@@ -15,14 +15,14 @@ For the best user experience I would recommend to register with a name and profi
 1. [Brief](https://github.com/khackethal/project-4-client#brief)
 2. [Approach](https://github.com/khackethal/project-4-client#brief)
    - [MVP](https://github.com/khackethal/project-4-client#mvp)
-   - [Technologies](https://github.com/khackethal/project-4-client#technologies)
+   - [Technologies](https://github.com/khackethal/project-4-client#technologies-frameworks-apis)
    - [Methodologies](https://github.com/khackethal/project-4-client#methodologies)
 3. [Planning](https://github.com/khackethal/project-4-client#planning)
-   - [Back End](https://github.com/khackethal/project-4-client#back-end)
-   - [Front End](https://github.com/khackethal/project-4-client#front-end)
+   - [Back End](https://github.com/khackethal/project-4-client#back-end-1)
+   - [Front End](https://github.com/khackethal/project-4-client#front-end-1)
 4. [Project Frames](https://github.com/khackethal/project-4-client#project-frames)
-5. [Wins & Challenges](https://github.com/khackethal/project-4-client#wins)
-6. [Key Learnings and Future Features](https://github.com/khackethal/project-4-client#key-learnings-and-future-features)
+5. [Wins & Challenges](https://github.com/khackethal/project-4-client#wins-challenges--bugs)
+6. [Key Learnings and Future Features](https://github.com/khackethal/project-4-client#key-learnings--future-features)
 
 
 ## Brief
