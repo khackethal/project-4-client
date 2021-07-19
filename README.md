@@ -90,7 +90,7 @@ I spent a great deal of time in the planning phase, thinking through the Back En
 
 The below diagram was created using [ Quick Db.](https://www.quickdatabasediagrams.com/)
 
-![ Entity Relationship Diagram ](.readme_files/tripbook_erd.png)
+![Entity Relationship Diagram](.readme_files/tripbook_erd.png) 
 
 
 #### The Trip Model:
@@ -224,7 +224,7 @@ The below wireframes were created using [ Excalidraw. ](https://excalidraw.com/)
 
 ##
 
-![ Original Wireframes ](.readme_files/tripbook_wireframes.png)
+![ Original Wireframes](.readme_files/tripbook_wireframes.png) 
 ##
 
 
@@ -454,6 +454,7 @@ export default CreateNewList
 ### User Homepage
 
 ![ User Homepage](.readme_files/tripbook-userhomepage.png)
+
 
 ## Wins, Challenges & Bugs
 
