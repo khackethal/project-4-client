@@ -98,7 +98,7 @@ The below diagram was created using [ Quick Db.](https://www.quickdatabasediagra
 The most important model is the trip itself, as it unites the relationships between creators, likes, comments and lists.
 
 ```python
-python
+
 
 class Trip(models.Model):
     location_id = models.CharField(max_length=20, blank=True)
