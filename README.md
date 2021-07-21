@@ -226,7 +226,10 @@ The below wireframes were created using [ Excalidraw. ](https://excalidraw.com/)
 
 ##
 
-![ Original Wireframes](.readme_files/tripbook_wireframes.png) 
+<p>
+<img src=".readme_files/tripbook_wireframes.png"alt="Original Wireframes"/>
+</p>
+
 ##
 
 
