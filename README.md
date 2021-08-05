@@ -53,7 +53,6 @@ A stretch goal I didn't have time to implement was a messaging functionality bet
 - Django
 - Pylint
 - Psycopg2 Binary
-- Django
 - Django Reast Framework
 - Djano Rest Framework Camel Case
 
