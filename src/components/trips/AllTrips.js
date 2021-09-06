@@ -11,6 +11,8 @@ function AllTrips() {
   const [searchTerm, setSearchTerm] = React.useState('')
 
 
+
+
   React.useEffect(() => {
 
     const getData = async () => {
@@ -51,7 +53,7 @@ function AllTrips() {
           placeholder="Search your Trip feed ..."
           type="text"
           className="search-input" 
-          onChange={handleInput}
+          onChange={handleInput}  
           value={searchTerm}
         />
         <button className="search-button" onClick={handleClear}>Clear Search</button>
